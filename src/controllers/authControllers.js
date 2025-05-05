@@ -23,7 +23,7 @@ export const signUp = async (req,res)=>{
         if (!name || !email || !password || !phone || !address){
             res.status(400).json({
                 success : false,
-                message : "fill "
+                message : "Please fill in all required fields: name, email, password, phone, address "
             })
         }
 
@@ -55,7 +55,8 @@ export const signUp = async (req,res)=>{
             user
          })
 
-    } catch (error){
+    }
+    catch (error){
         console.log(error);
         res.status(500).json({
             success : false,
@@ -64,6 +65,7 @@ export const signUp = async (req,res)=>{
         })
     }
 }
+
 
 /*
     Login function
@@ -134,4 +136,16 @@ export const login = async (req,res)=>{
             error
         })
     }
+}
+
+
+/* 
+    test
+    route : http :// localhost:4000/api/v1/auth/test 
+    description : for testing the middlewares
+*/
+
+//test controllers
+export const testController = (req,res) =>{
+    res.send("protect route")
 }
