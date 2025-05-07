@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { toast } from 'sonner'
 import axios from 'axios' 
+import { useNavigate } from 'react-router-dom'
 
 const SignUp = () => {
   const [name,setName] = useState("")
@@ -9,6 +10,7 @@ const SignUp = () => {
   const [password,setPassword] = useState("")
   const [phone,setPhone] = useState("")
   const [address,setAddress] = useState("")
+  const navigate = useNavigate()
 
   //form submit
   const handleSubmit =async(e)=>{
@@ -20,12 +22,13 @@ const SignUp = () => {
       
       if(data.success){
         toast.success(data.message)
+        navigate("/login")
       }else{
         toast.error(data.message)
       }
     }catch(error){
       console.log(error)
-      
+
       toast.error("Something went wrong")
     }
 

@@ -49,7 +49,7 @@ export const signUp = async (req,res)=>{
         //safety
         user.password=undefined
          //send sucess message to frontend
-         res.status(200).json({
+         res.status(201).json({
             success : true,
             message : "user successfully signed",
             user
@@ -134,6 +134,29 @@ export const login = async (req,res)=>{
             success : false,
             message : (`Error in login ${error}`),
             error
+        })
+    }
+}
+
+// logout functionality
+
+export const logOut = async (req,res) => {
+    try{
+        res.cookie("token",null,{
+            expires : new Date (Date.now()),
+            httpOnly : true,
+        });
+
+        res.status(200).json({
+            success : true,
+            message : "Successfully logged out"
+        })
+    }catch(error){
+        console.log(error)
+        res.status(500).json({
+            success : false,
+            message : `error in logging out ${error}`,
+            error,
         })
     }
 }
