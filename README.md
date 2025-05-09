@@ -53,3 +53,13 @@ A full-stack authentication system that allows users to register, log in, log ou
 
 ---
 
+* **big screen**
+![img](./ss1.JPG)
+![img](./ss2.JPG)
+![img](./ss3.JPG)
+
+* **small screen**
+
+![img](./ss4.JPG)
+![img](./ss5.JPG)
+
